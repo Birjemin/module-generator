@@ -1,0 +1,14 @@
+<?php
+namespace App\Base\Transformer;
+
+
+interface BaseTransformerInterface
+{
+    /**
+     * @param $data
+     * @param array $keys
+     *
+     * @return mixed
+     */
+    public function transformer($data, $keys = []);
+}

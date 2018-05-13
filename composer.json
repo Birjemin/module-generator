@@ -1,0 +1,32 @@
+{
+    "name": "birjemin/module-generator",
+    "description": "module generator for one with lazy cancer",
+    "keywords": ["module", "generator"],
+    "authors": [
+        {
+            "name": "birjemin",
+            "email": "birjemin@foxmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Birjemin\\ModuleGenerator\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Birjemin\\ModuleGenerator\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.0.1-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

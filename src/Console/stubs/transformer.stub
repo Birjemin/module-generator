@@ -1,0 +1,17 @@
+<?php
+
+namespace DummyNamespace;
+
+
+use App\Base\Transformer\Impl\BaseTransformer;
+
+class DummyClass extends BaseTransformer
+{
+    public function doTransformer($model, $keys)
+    {
+        $res = [
+            'id' => $model->id,
+        ];
+        return $res;
+    }
+}

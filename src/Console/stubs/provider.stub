@@ -1,0 +1,50 @@
+<?php
+
+namespace DummyNamespace;
+
+
+use Illuminate\Support\ServiceProvider;
+use DummyModuleNameSpaceDummyModuleNameModule;
+use DummyModuleNameSpaceRepository\Impl\DummyModuleNameRepository;
+use DummyModuleNameSpaceService\Impl\DummyModuleNameService;
+
+class DummyClass extends ServiceProvider
+{
+    /**
+     * register provider
+     */
+    public function register()
+    {
+        $this->registerClassAliases();
+        $this->registerProvider();
+    }
+
+    /**
+     * ...
+     */
+    public function registerProvider()
+    {
+        $this->app->singleton('DummyLowerModuleName.module', DummyModuleNameModule::class);
+        $this->app->singleton('DummyLowerModuleName.repository', DummyModuleNameRepository::class);
+        $this->app->singleton('DummyLowerModuleName.service', DummyModuleNameService::class);
+    }
+
+    /**
+     *
+     */
+    public function registerClassAliases()
+    {
+        $aliases = [
+            'DummyLowerModuleName.module'     => 'DummyModuleNameSpaceDummyModuleNameModuleInterface',
+            'DummyLowerModuleName.repository' => 'DummyModuleNameSpaceRepository\DummyModuleNameRepositoryInterface',
+            'DummyLowerModuleName.service'    => 'DummyModuleNameSpaceService\DummyModuleNameServiceInterface',
+
+        ];
+
+        foreach ($aliases as $key => $alia) {
+            foreach ((array) $alia as $alias) {
+                $this->app->alias($key, $alias);
+            }
+        }
+    }
+}

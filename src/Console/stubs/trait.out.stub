@@ -1,0 +1,25 @@
+<?php
+
+namespace DummyNamespace;
+
+
+use DummyNamespace\Transformer\DummyModuleTransformer;
+
+trait DummyClass
+{
+    private $DummyStrModuleModule;
+
+    private $DummyStrModuleTransformer;
+
+    public function getDummyModuleModule()
+    {
+        !isset($this->DummyStrModuleModule) && $this->DummyStrModuleModule = app(DummyModuleModule::class);
+        return $this->DummyStrModuleModule;
+    }
+
+    public function getDummyModuleTransformer()
+    {
+        !isset($this->DummyStrModuleTransformer) && $this->DummyStrModuleTransformer = app(DummyModuleTransformer::class);
+        return $this->DummyStrModuleTransformer;
+    }
+}

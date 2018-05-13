@@ -1,0 +1,20 @@
+<?php
+
+namespace DummyNamespace;
+
+
+use DummyInterface;
+use DummyModelNameSpace;
+use App\Base\Repository\Impl\BaseRepository;
+
+class DummyClass extends BaseRepository implements DummyClassInterface
+{
+    /**
+     * @return mixed
+     */
+    public function targetModelClass()
+    {
+        // TODO: Implement targetModelClass() method.
+        return DummyModel::class;
+    }
+}

@@ -1,0 +1,116 @@
+<?php
+namespace App\Base\Repository\Impl;
+
+
+use App\Base\Repository\BaseRepositoryInterface;
+use Illuminate\Database\Eloquent\Model;
+
+abstract class BaseRepository implements BaseRepositoryInterface
+{
+
+    /**
+     * @return mixed
+     */
+    abstract public function targetModelClass();
+
+    /**
+     * get model
+     * @return Model
+     */
+    public function model()
+    {
+        $targetModel = $this->targetModelClass();
+        return new $targetModel;
+    }
+
+    /**
+     * find condition by id
+     *
+     * @param $id
+     *
+     * @return Model
+     */
+    public function findById($id)
+    {
+        return $this->model()->find($id);
+    }
+
+    /**
+     * get all
+     *
+     * @param array $columns
+     *
+     * @return Model
+     */
+    public function all($columns = ['*'])
+    {
+        return $this->model()->get($columns);
+    }
+
+    /**
+     * get paginate
+     *
+     * @param int $perPage
+     * @param array $columns
+     *
+     * @return Model
+     */
+    public function paginate($perPage = 15, $columns = ['*'])
+    {
+        return $this->model()->paginate($perPage);
+    }
+
+    /**
+     * create data
+     *
+     * @param array $data
+     *
+     * @return mixed
+     */
+    public function create(array $data)
+    {
+        // TODO: Implement create() method.
+        return $this->model()->create($data);
+    }
+
+    /**
+     * 这个方法略坑
+     * update data
+     *
+     * @param array $data
+     * @param $id
+     * @param string $attribute
+     *
+     * @return false
+     */
+    public function update($id, array $data, $attribute = 'id')
+    {
+        return $this->model()->where($attribute, '=', $id)->update($data);
+    }
+
+    /**
+     * @param $id
+     * @param bool $soft
+     * @param string $attribute
+     *
+     * @return bool|mixed|null
+     */
+    public function delete($id, $soft = true, $attribute = 'id')
+    {
+        // TODO: Implement delete() method.
+        return $soft ? $this->update($id, ['deleted_at' => date('Y-m-d H:i:s')], $attribute) : $this->model()->where($attribute, $id)->forceDelete();
+    }
+
+    /**
+     * 填充数据
+     *
+     * @param array $attributes
+     *
+     * @return $this
+     */
+    public function fill(array $attributes)
+    {
+        // TODO: Implement fill() method.
+        return $this->model()->fill();
+    }
+}
