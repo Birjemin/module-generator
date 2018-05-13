@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "4.1"
+        "laravel/framework": "^4.1"
     },
     "autoload": {
         "psr-4": {
@@ -24,7 +24,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.0.1-dev"
+            "dev-master": "0.0.2-dev"
         }
     },
     "minimum-stability": "dev",
