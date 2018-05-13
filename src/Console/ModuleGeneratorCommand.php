@@ -28,7 +28,7 @@ class ModuleGeneratorCommand extends GeneratorCommand
      */
     protected $description = 'Generate the module';
 
-    public function fire()
+    public function handle()
     {
         $moduleName = $this->argument('name');
 
