@@ -1,9 +1,11 @@
 # module-generator
 
 ## 游戏简介
+
 为laravel生成如下的项目结构，方便管理和书写。
 
 ## 游戏地图
+
 ```
 app |
     |- Base |
@@ -25,6 +27,7 @@ app |
 ```
 
 ## 游戏说明
+
 * app为项目目录：
     * Module为模块目录，将项目分成相应的模块；
         * Config为配置目录（对内）
@@ -38,6 +41,7 @@ app |
         * InTrait为调用其他模块的入口（对内）
 
 ## 游戏规则
+
 ```
 1.Controller只能通过OutTrait访问模块，OutTrait只能暴露Module和Transformer这两个对外的文件；
 2.Model只能被Repository调用；
@@ -48,15 +52,19 @@ app |
 ## 使用说明
 
 * 引入
+
 ```
 composer require birjemin/module-generator
 ```
 
 * 命令使用
+
 ```
 php artisan birjemin:module-generator moduleName 
 ```
 
 * 疑问
+
 > laravel version > 5.5
+
 > [https://github.com/Birjemin/laravel-generator](https://github.com/Birjemin/laravel-generator)
