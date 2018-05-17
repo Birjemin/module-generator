@@ -13,7 +13,7 @@ trait DummyClass
 
     public function getDummyModuleModule()
     {
-        !isset($this->DummyStrModuleModule) && $this->DummyStrModuleModule = app(DummyModuleModule::class);
+        !isset($this->DummyStrModuleModule) && $this->DummyStrModuleModule = app(DummyModuleModuleInterface::class);
         return $this->DummyStrModuleModule;
     }
 
