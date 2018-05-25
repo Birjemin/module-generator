@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Base\Job;
+
+
+interface BaseJobInterface
+{
+    /**
+     * handle
+     * @return mixed
+     */
+    public function handle();
+}

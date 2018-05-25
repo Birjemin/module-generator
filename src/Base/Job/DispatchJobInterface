@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Base\Job;
+
+
+/**
+ * Interface DispatchJobInterface
+ * @package App\Base\Job
+ *
+ * usage:
+ * dispatch(new Job);
+ * class Job implements DispatchJobInterface
+ *
+ */
+interface DispatchJobInterface
+{
+    /**
+     * @return mixed
+     */
+    public function getJobName();
+}
