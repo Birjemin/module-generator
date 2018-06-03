@@ -3,6 +3,7 @@ namespace App\Base\Transformer\Impl;
 
 
 use App\Base\Transformer\BaseTransformerInterface;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
@@ -22,7 +23,7 @@ abstract class BaseTransformer implements BaseTransformerInterface
 
         }, $this->getRealData($data));
         // 返回
-        if ($data instanceof LengthAwarePaginator) {
+        if ($data instanceof LengthAwarePaginator || $data instanceof Paginator) {
             $data->setCollection(Collection::make($result));
             return $data->toArray();
         }
@@ -41,7 +42,7 @@ abstract class BaseTransformer implements BaseTransformerInterface
      */
     protected function getRealData($data)
     {
-        if ($data instanceof LengthAwarePaginator) {
+        if ($data instanceof LengthAwarePaginator || $data instanceof Paginator) {
             return $data->items();
         }
         if ($data instanceof Model) {
