@@ -25,7 +25,7 @@ abstract class BaseTransformer implements BaseTransformerInterface
         // 返回
         if ($data instanceof LengthAwarePaginator || $data instanceof Paginator) {
             $data->setCollection(Collection::make($result));
-            return $data->toArray();
+            return $data;
         }
         // 单个模型
         if ($data instanceof Model) {
